@@ -26,7 +26,7 @@
   /* ————————————————————————————— */
   @font-face {
     font-family: 'Alte Haas Grotesk';
-    src: url('fonts/AlteHaasGroteskBold.ttf') format('truetype');
+    src: url('AlteHaasGroteskBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
