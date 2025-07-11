@@ -95,16 +95,4 @@ const observer = new IntersectionObserver((entries) => {
   
   document.querySelectorAll('.animate-on-scroll')
     .forEach(el => observer.observe(el));
-    document.addEventListener('DOMContentLoaded', () => {
-        const els = document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up');
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add('visible');
-              obs.unobserve(e.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        els.forEach(el => obs.observe(el));
-      });
-      
+  
