@@ -2746,18 +2746,7 @@ img, video {
     padding: 0.75rem 0;
   }
 }
-@media (min-width: 481px) {
-  .site-footer > .footer-top,
-  .site-footer > .footer-nav,
-  .site-footer > .footer-bottom {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    /* use whatever padding you like: */
-    padding: 2rem 0;
-    box-sizing: border-box;
-  }
-}
+
 
 
 @media (max-width: 480px) {
