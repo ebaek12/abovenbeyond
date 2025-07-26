@@ -2903,13 +2903,7 @@ img, video {
     line-height: 1.3;
     white-space: normal !important;
   }
-  .hero-title span {
-    display: block;
-    width: auto !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    border-right: none !important;
-  }
+
 
   /* Tweak your button to sit comfortably below */
   .hero-btn {
@@ -2986,3 +2980,18 @@ img, video {
   to   { width: 100%;                   border-right-color: transparent;       }
 }
 /* keep your original ctaBlink keyframes as-is */
+@media (max-width: 600px) {
+  .hero-title span {
+    /* preserve the typing caret and let your keyframes run: */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid var(--white);
+  }
+}
+/* shrink & clamp the CTA font on small screens */
+@media (max-width: 600px) {
+  .cta-title {
+    /* between 1rem and 1.75rem, scaling with viewport width */
+    font-size: clamp(1rem, 5vw, 1.75rem);
+  }
+}
