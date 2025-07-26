@@ -95,4 +95,13 @@ const observer = new IntersectionObserver((entries) => {
   
   document.querySelectorAll('.animate-on-scroll')
     .forEach(el => observer.observe(el));
-  
+  // script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open');
+  });
+});
