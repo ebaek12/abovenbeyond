@@ -105,3 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.toggle('open');
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  navToggle && navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open');
+  });
+});
