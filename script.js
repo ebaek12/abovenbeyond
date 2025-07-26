@@ -114,3 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.toggle('open');
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const mql = window.matchMedia('(max-width: 600px)');
+  const hero = document.querySelector('.hero-title');
+  function splitHero() {
+    if (!hero) return;
+    if (mql.matches && !hero.classList.contains('mobile-split')) {
+      hero.classList.add('mobile-split');
+      hero.innerHTML = `
+        <span class="line1">A College Counselor</span>
+        <span class="line2">That Goes Above</span>
+        <span class="line3">and Beyond For You.</span>
+      `;
+    }
+    // if you want to revert back on desktop, you could stash the original innerHTML
+    // and restore here when !mql.matches
+  }
+  mql.addEventListener('change', splitHero);
+  splitHero();
+});
