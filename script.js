@@ -133,3 +133,30 @@ document.addEventListener('DOMContentLoaded', () => {
   mql.addEventListener('change', splitHero);
   splitHero();
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const mql  = window.matchMedia('(max-width:600px)');
+  const hero = document.querySelector('.hero-title');
+  const originalHTML = hero.innerHTML;
+
+  function updateHero() {
+    if (mql.matches && !hero.classList.contains('mobile-split')) {
+      hero.classList.add('mobile-split');
+      // three lines, hidden by CSS until each types
+      hero.innerHTML = `
+        <span class="line1">A College Counselor</span>
+        <span class="line2">That Goes Above</span>
+        <span class="line3">and Beyond For You.</span>
+      `;
+    }
+    if (!mql.matches && hero.classList.contains('mobile-split')) {
+      hero.classList.remove('mobile-split');
+      hero.innerHTML = originalHTML;
+    }
+  }
+
+  // run on load + on resize changes
+  mql.addEventListener
+    ? mql.addEventListener('change', updateHero)
+    : mql.addListener(updateHero);
+  updateHero();
+});

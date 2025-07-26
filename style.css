@@ -3168,3 +3168,89 @@ img, video {
     font-size: clamp(1rem,4vw,1.5rem) !important;
   }
 }
+/*————————————————————————————————————————————*
+  MOBILE ONLY: 3-LINE HERO TYPEWRITER
+*————————————————————————————————————————————*/
+@media (max-width: 600px) {
+  /* hide all spans until they animate */
+  .hero-title span {
+    display: block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: none;
+  }
+
+  /* shrink & center the hero text */
+  .hero-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+
+  /* line-by-line typing */
+  .line1 {
+    animation: mobileTyping 0.8s steps(18,end) forwards;
+    animation-delay: 0.2s;
+  }
+  .line2 {
+    animation: mobileTyping 0.8s steps(14,end) forwards;
+    animation-delay: 1.0s;
+  }
+  .line3 {
+    animation: mobileTyping 0.8s steps(20,end) forwards;
+    animation-delay: 1.8s;
+  }
+
+  @keyframes mobileTyping {
+    0% {
+      width: 0;
+      border-right: .15em solid var(--white);
+    }
+    99% {
+      width: 100%;
+      border-right: .15em solid var(--white);
+    }
+    100% {
+      border-right-color: transparent;
+    }
+  }
+}
+
+/*————————————————————————————————————————————*
+  RESTORE CTA TYPEWRITER (desktop+mobile)
+*————————————————————————————————————————————*/
+.cta-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid var(--primary-color);
+  width: 0;
+  padding-right: .2em;
+}
+.cta-typing.start {
+  animation:
+    ctaTyping 2.5s steps(29,end) forwards,
+    ctaBlink  0.75s step-end infinite 2.5s;
+}
+
+@keyframes ctaTyping {
+  0%    { width: 0;                     border-right-color: var(--primary-color); }
+  99.9% { width: 29ch;                  border-right-color: var(--primary-color); }
+  100%  { width: 29ch;                  border-right-color: transparent; }
+}
+@keyframes ctaBlink {
+  from, to { border-right-color: transparent; }
+  50%      { border-right-color: var(--primary-color); }
+}
+
+/* allow CTA to wrap on mobile */
+@media (max-width: 600px) {
+  .cta-title,
+  .cta-typing {
+    white-space: normal !important;
+    width: auto !important;
+    font-size: clamp(1rem,4vw,1.5rem);
+  }
+}
