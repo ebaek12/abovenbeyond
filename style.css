@@ -3027,36 +3027,3 @@ img, video {
     animation: none !important;    /* kill any typing */
   }
 }
-/* ── HERO FULL-BLEED TEXT & OVERSIZED BUTTON ───────────────── */
-
-/* let your hero text container span the entire viewport */
-.hero-content {
-  max-width: none;
-  width: 100%;
-  padding: 0 2rem;      /* a bit of side-padding for very large screens */
-  box-sizing: border-box;
-}
-
-/* huge, responsive heading, normal weight */
-.hero-title {
-  /* clamp(minimum, preferred-vw, maximum) */
-  font-size: clamp(4rem, 10vw, 12rem);
-  font-weight: 400;     /* normal, not bold */
-  line-height: 1.1;
-  text-transform: none; /* preserve your casing */
-  margin: 0 0 1.5rem;   /* tighten up underneath */
-}
-
-/* supersize the button */
-.hero-btn {
-  display: inline-block;
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  padding: 1.5rem 3rem;
-  border-radius: .75rem;
-  transition: transform .2s ease, background .3s ease;
-}
-
-/* optional: extra pop on hover */
-.hero-btn:hover {
-  transform: scale(1.1);
-}
