@@ -3014,36 +3014,7 @@ img, video {
     font-size: clamp(1rem, 3vw, 1.5rem) !important;
   }
 }
-/*——————————————————————————————*
-  1) HERO MOBILE FIX + TYPING REBORN
-*——————————————————————————————*/
-@media (max-width: 600px) {
-  .hero-content {
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-  }
-  .hero-title {
-    font-size: 2.5rem;       /* shrink font so it fits */
-    width: 100%;             /* full container width */
-    overflow: visible;       /* let the caret peek */
-  }
-  /* override desktop “28ch/30ch” so mobile uses full span width */
-  .line1 {
-    animation: typing1Mobile 2s steps(28,end) forwards;
-  }
-  @keyframes typing1Mobile {
-    0%   { width: 0; border-right: .15em solid var(--white); }
-    100% { width:100%; border-right: transparent; }
-  }
-  .line2 {
-    animation: typing2Mobile 2s steps(30,end) 2s forwards;
-  }
-  @keyframes typing2Mobile {
-    0%   { width: 0; border-right: .15em solid var(--white); }
-    100% { width:100%; border-right: transparent; }
-  }
-}
+
 
 /* ── MOBILE: SHOW 3 LINES & DISABLE TYPING ───────────────── */
 @media (max-width: 600px) {
@@ -3056,14 +3027,36 @@ img, video {
     animation: none !important;    /* kill any typing */
   }
 }
-/* ── MOBILE: SHOW 3 LINES & DISABLE TYPING ───────────────── */
-@media (max-width: 600px) {
-  .hero-title span {
-    display: block;                /* each on its own line */
-    width: auto !important;        /* full width */
-    overflow: visible !important;  /* show it right away */
-    white-space: normal !important;
-    border-right: none !important; /* hide caret */
-    animation: none !important;    /* kill any typing */
-  }
+/* ── HERO FULL-BLEED TEXT & OVERSIZED BUTTON ───────────────── */
+
+/* let your hero text container span the entire viewport */
+.hero-content {
+  max-width: none;
+  width: 100%;
+  padding: 0 2rem;      /* a bit of side-padding for very large screens */
+  box-sizing: border-box;
+}
+
+/* huge, responsive heading, normal weight */
+.hero-title {
+  /* clamp(minimum, preferred-vw, maximum) */
+  font-size: clamp(4rem, 10vw, 12rem);
+  font-weight: 400;     /* normal, not bold */
+  line-height: 1.1;
+  text-transform: none; /* preserve your casing */
+  margin: 0 0 1.5rem;   /* tighten up underneath */
+}
+
+/* supersize the button */
+.hero-btn {
+  display: inline-block;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  padding: 1.5rem 3rem;
+  border-radius: .75rem;
+  transition: transform .2s ease, background .3s ease;
+}
+
+/* optional: extra pop on hover */
+.hero-btn:hover {
+  transform: scale(1.1);
 }
