@@ -2985,7 +2985,6 @@ img, video {
     /* preserve the typing caret and let your keyframes run: */
     white-space: nowrap;
     overflow: hidden;
-    border-right: .15em solid var(--white);
   }
 }
 /* shrink & clamp the CTA font on small screens */
@@ -2993,5 +2992,25 @@ img, video {
   .cta-title {
     /* between 1rem and 1.75rem, scaling with viewport width */
     font-size: clamp(1rem, 5vw, 1.75rem);
+  }
+}
+/* MOBILE: no caret unless the keyframe explicitly injects one */
+@media (max-width: 600px) {
+  .hero-title span {
+    border-right: none !important;
+  }
+}
+/* MOBILE: allow the CTA headline to wrap */
+@media (max-width: 600px) {
+  .cta-title,
+  .cta-typing {
+    white-space: normal !important;
+    overflow: visible !important;
+    width: auto !important;
+  }
+
+  /* (Optional) if you still want to softly scale it down */
+  .cta-title {
+    font-size: clamp(1rem, 3vw, 1.5rem) !important;
   }
 }
