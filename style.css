@@ -2735,15 +2735,30 @@ img, video {
   4) WRAP & STACK YOUR FOOTER 
 *——————————————————————————————*/
 /* give the footer its own “container” width */
-.site-footer > .footer-top,
-.site-footer > .footer-nav,
-.site-footer > .footer-bottom {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 0.75rem 0;
+@media (max-width: 480px) {
+  .site-footer > .footer-top,
+  .site-footer > .footer-nav,
+  .site-footer > .footer-bottom {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0.75rem 0;
+  }
 }
+@media (min-width: 481px) {
+  .site-footer > .footer-top,
+  .site-footer > .footer-nav,
+  .site-footer > .footer-bottom {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    /* use whatever padding you like: */
+    padding: 2rem 0;
+    box-sizing: border-box;
+  }
+}
+
 
 @media (max-width: 480px) {
   /* stack & center everything in the footer */
@@ -2905,7 +2920,6 @@ img, video {
     white-space: normal !important;
     overflow: visible !important;
     border-right: none !important;
-    animation: none     !important;
   }
 
   /* Tweak your button to sit comfortably below */
@@ -2915,3 +2929,71 @@ img, video {
     font-size: 1rem;
   }
 }
+@media (max-width: 600px) {
+  /* let the hero grow vertically & hide nothing but the overflowed video */
+  .hero {
+    height: auto;
+    padding: 3rem 0;
+    overflow: visible;
+  }
+
+  /* full‐bleed behind but never overflow horizontally */
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .bg-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    height: 100%;
+    width: auto;      /* auto‐scale width so it never spills */
+    min-width: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+
+  /* Let the text container fill the screen with side padding */
+  .hero-content {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Shrink the font so it fits & still types out */
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+}
+@media (max-width: 600px) {
+  /* full‐width container for the CTA */
+  .cta-section .container {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* smaller headline that still types */
+  .cta-title {
+    font-size: 1.75rem;
+  }
+
+  /* override the desktop animation with one that fills 100% */
+  .cta-typing.start {
+    animation:
+      ctaTypingMobile 3s steps(30,end) forwards,
+      ctaBlink       0.75s step-end infinite 3s;
+  }
+}
+
+/* new mobile keyframe */
+@keyframes ctaTypingMobile {
+  from { width: 0;                       border-right-color: var(--primary-color); }
+  to   { width: 100%;                   border-right-color: transparent;       }
+}
+/* keep your original ctaBlink keyframes as-is */
