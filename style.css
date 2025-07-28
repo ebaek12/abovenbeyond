@@ -3110,9 +3110,43 @@ img, video {
 
 /* color line 2 red, others stay white */
 .hero-title .line2 {
-  color: var(--primary-color) !important; /* or #df1c1b */
+  color: var(#df1c1b) !important; /* or #df1c1b */
 }
 .hero-title .line1,
 .hero-title .line3 {
   color: #fff !important;
+}
+/* ───── Hero: force 3 tight, block lines ───── */
+.hero-title {
+  /* responsive but not ginormous */
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+  line-height: 1.1 !important;      /* super‐tight vertical spacing */
+  text-align: center;
+}
+
+/* every span becomes its own block, no animation, no caret */
+.hero-title span {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  animation: none !important;
+  border-right: none !important;
+}
+
+/* explicitly color only the middle line red */
+.hero-title .line2 {
+  color: var(#df1c1b) !important;  /* #941b2d */
+}
+
+/* force the other two lines back to white */
+.hero-title .line1,
+.hero-title .line3 {
+  color: #fff !important;
+}
+
+/* in case you forgot to remove the <br>, hide it */
+.hero-title br {
+  display: none !important;
 }
