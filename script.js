@@ -33,23 +33,7 @@ if (slides.length > 0) {
 
 // still in script.js, after the slider block
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cta = document.querySelector('.cta-typing');
-    if (!cta) return;
-  
-    const obs = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          cta.classList.add('start');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1   // fire as soon as 10% is visible
-    });
-  
-    obs.observe(cta);
-  });
+
   // back-to-top button
 const btn = document.querySelector('.back-to-top');
 if (btn) {
