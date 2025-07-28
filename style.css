@@ -941,24 +941,7 @@ Footer
   position: relative;
 }
 
-/* oversized decorative quotation mark */
-.testimonial-card::before {
-  content: "“";
-  position: absolute;
-  font-size: 4rem;
-  color: rgba(24,50,74,0.1);
-  top: 1rem;
-  left: 1rem;
-}
 
-/* student photo */
-.testimonial-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
 
 /* text block */
 .testimonial-content {
@@ -3027,30 +3010,12 @@ img, video {
     animation: none !important;    /* kill any typing */
   }
 }
-/* ── HERO: FULL-WIDTH, NO TYPING ───────────────────────────────── */
-.hero-title {
-  /* Shrink-to-grow: min 3rem, ideal ~10vw, max 8rem */
-  font-size: clamp(3rem, 10vw, 8rem) !important;
-  line-height: 1.1;
-  /* allow wrapping on smaller screens */
-  white-space: normal !important;
-  overflow: visible !important;
-  /* remove any leftover text-overflow */
-  text-overflow: unset !important;
-}
 
 /* Targets any <span> wrappers used for typing lines */
-.hero-title span {
-  animation: none !important;
-  border-right: none !important;
-  width: auto !important;
-}
+
 
 /* In case you have .line1/.line2/.line3 classes: disable those too */
-.line1, .line2, .line3 {
-  animation: none !important;
-  border-right: none !important;
-}
+
 /* ── HER0 BUTTON: BIGGER & BOLDER ───────────────────────────────── */
 .hero-btn,
 .btn {  /* if you use both .hero-btn and .btn for that button */
@@ -3064,31 +3029,7 @@ img, video {
 .btn:hover {
   transform: scale(1.08);
 }
-/* 1) Allow the hero container to expand */
-.hero {
-  overflow: visible !important;
-}
 
-/* 2) Make your text wrap, and use a clamp()‑based font‑size */
-.hero-title {
-  font-size: clamp(3rem, 8vw, 6rem) !important;
-  line-height: 1.2;
-  white-space: normal !important;
-  overflow: visible !important;
-}
-
-/* 3) Disable nowrap + hidden on the inner spans */
-.hero-title span {
-  display: inline !important;
-  width: auto    !important;
-  white-space: normal !important;
-  overflow: visible  !important;
-  animation: none  !important;  /* if you want to kill the typing animation too */
-}
-/* make "ABOVE AND BEYOND…" red */
-.hero-title .line2 {
-  color: var(--primary-color) !important;
-}
 /* ── HERO TITLE OVERRIDES ───────────────────────────────────────────────── */
 
 /* 1) Make the hero headline big and responsive, but never overflow */
