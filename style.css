@@ -3085,3 +3085,7 @@ img, video {
   overflow: visible  !important;
   animation: none  !important;  /* if you want to kill the typing animation too */
 }
+/* make "ABOVE AND BEYOND…" red */
+.hero-title .line2 {
+  color: var(--primary-color) !important;
+}
