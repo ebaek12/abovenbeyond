@@ -3085,3 +3085,34 @@ img, video {
   text-align: left;      /* should already be default */
   width: 100%;
 }
+/* ───── HERO: force 3 tightly‐stacked lines ───── */
+.hero-title {
+  /* responsive but never enormous */
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+  /* pull the lines in very close */
+  line-height: 1.1 !important;
+  text-align: center;
+}
+
+.hero-title span {
+  /* each span is its own line */
+  display: block !important;
+  /* kill any typing widths, animations or caret */
+  width: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  animation: none !important;
+  border-right: none !important;
+  /* remove every bit of extra space */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* color line 2 red, others stay white */
+.hero-title .line2 {
+  color: var(--primary-color) !important; /* or #df1c1b */
+}
+.hero-title .line1,
+.hero-title .line3 {
+  color: #fff !important;
+}
