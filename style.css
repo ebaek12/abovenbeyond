@@ -3064,3 +3064,56 @@ img, video {
 .btn:hover {
   transform: scale(1.08);
 }
+/* ─────────────────────────────────────────────────────────
+   HERO: don’t cut off oversized text & let it expand
+───────────────────────────────────────────────────────── */
+.hero {
+  /* override your old 100vh + overflow:hidden */
+  height: auto !important;       /* let it grow with content */
+  min-height: 100vh;             /* still fill at least one screen */
+  overflow: visible !important;  /* no clipping of text */
+  padding: 4rem 0;               /* add top/bottom breathing room */
+}
+
+.hero-content {
+  /* fill the new hero space */
+  height: auto !important;
+  padding: 0 2rem;               /* keep nice side-margins */
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HEADLINE: huge, responsive, no typing artifact
+───────────────────────────────────────────────────────── */
+.hero-title {
+  /* scale from 3rem up to 8rem based on viewport width */
+  font-size: clamp(3rem, 10vw, 8rem) !important;
+  line-height: 1.1;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
+/* disable any leftover typing spans */
+.hero-title span,
+.line1, .line2, .line3 {
+  animation: none !important;
+  border-right: none  !important;
+  width: auto     !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BUTTON: extra-large, punchy hover
+───────────────────────────────────────────────────────── */
+.hero-btn {
+  padding: 2rem 4rem !important;    /* top/bottom, left/right */
+  font-size: 1.5rem   !important;
+  border-radius: 1rem  !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.2);
+}
