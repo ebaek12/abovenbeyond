@@ -3089,3 +3089,42 @@ img, video {
 .hero-title .line2 {
   color: var(--primary-color) !important;
 }
+/* ── HERO TITLE OVERRIDES ───────────────────────────────────────────────── */
+
+/* 1) Make the hero headline big and responsive, but never overflow */
+.hero-title {
+  /* shrink-to-grow: between 3rem and 6rem based on viewport width */
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+  line-height: 1.1 !important;
+  text-align: center;
+}
+
+/* 2) Render each <span> on its own line, and show ALL the text */
+.hero-title span {
+  display: block !important;
+  white-space: normal  !important;
+  overflow: visible    !important;
+  animation: none      !important;
+  border-right: none   !important;
+  padding: 0           !important;
+  margin: 0            !important;
+}
+
+/* 3) Give only the “ABOVE AND BEYOND” (line2) your custom red */
+.hero-title .line2 {
+  color: #df1c1b !important;
+}
+
+/* 4) Ensure the other lines stay white (or your video‑overlay tint) */
+.hero-title .line1,
+.hero-title .line3 {
+  color: #fff !important;
+}
+
+/* 5) Responsiveness: if it ever does overflow, the clamp() will shrink it */
+@media (max-width: 500px) {
+  .hero-title {
+    /* caps font at 4rem on very small screens */
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+  }
+}
