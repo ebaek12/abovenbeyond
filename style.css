@@ -3128,3 +3128,19 @@ img, video {
     font-size: clamp(2.5rem, 10vw, 4rem) !important;
   }
 }
+/* somewhere after your existing testimonial-card rules */
+.testimonial-card {
+  display: grid;
+  grid-template-columns: 1fr !important;
+}
+
+/* if you still have any .testimonial-photo lingering, hide it */
+.testimonial-photo {
+  display: none !important;
+}
+
+/* ensure your text really hugs the left edge */
+.testimonial-content {
+  text-align: left;      /* should already be default */
+  width: 100%;
+}
