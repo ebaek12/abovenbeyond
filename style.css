@@ -212,7 +212,7 @@ html, body {
   /* start completely hidden (no text, no cursor) */
   width: 0;
   border-right: none;
-  
+
   /* delay for line1’s 2s, then run typing2, keeping end state */
   animation: typing2 2s steps(30,end) 2s forwards;
 }
@@ -632,7 +632,7 @@ Footer
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
- 
+
   animation: fadeInUp 1s ease-out;
 }
 .footer-logo {
@@ -941,7 +941,24 @@ Footer
   position: relative;
 }
 
+/* oversized decorative quotation mark */
+.testimonial-card::before {
+  content: "“";
+  position: absolute;
+  font-size: 4rem;
+  color: rgba(24,50,74,0.1);
+  top: 1rem;
+  left: 1rem;
+}
 
+/* student photo */
+.testimonial-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
 /* text block */
 .testimonial-content {
@@ -2492,13 +2509,13 @@ margin-top: 2.5rem;
   padding: 1rem;                  /* a touch less padding */
   border-radius: 1rem;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  
+
   /* swap out the teal for a soft blush */
   border-top: 4px solid #fff7f7 !important;
-  
+
   /* let the height grow naturally */
   min-height: auto;
-  
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -3010,42 +3027,3 @@ img, video {
     animation: none !important;    /* kill any typing */
   }
 }
-
-/* Targets any <span> wrappers used for typing lines */
-
-
-/* In case you have .line1/.line2/.line3 classes: disable those too */
-
-/* ── HER0 BUTTON: BIGGER & BOLDER ───────────────────────────────── */
-.hero-btn,
-.btn {  /* if you use both .hero-btn and .btn for that button */
-  padding: 1.5rem 3rem !important;
-  font-size: 1.25rem !important;
-  border-radius: 0.75rem;  /* a little more rounding */
-  /* optional: add a subtle shadow for extra pop */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-.hero-btn:hover,
-.btn:hover {
-  transform: scale(1.08);
-}
-
-
-/* somewhere after your existing testimonial-card rules */
-.testimonial-card {
-  display: grid;
-  grid-template-columns: 1fr !important;
-}
-
-/* if you still have any .testimonial-photo lingering, hide it */
-.testimonial-photo {
-  display: none !important;
-}
-
-/* ensure your text really hugs the left edge */
-.testimonial-content {
-  text-align: left;      /* should already be default */
-  width: 100%;
-}
-
-
