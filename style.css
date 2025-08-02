@@ -193,37 +193,7 @@ html, body {
   white-space: nowrap;
 }
 
-/* ————— LINE 1 ————— */
-.line1 {
-  animation: typing1 2s steps(28,end) forwards;
-}
 
-@keyframes typing1 {
-  /* at the very start we add a caret */
-  0%   { width: 0;   border-right: .15em solid var(--white); }
-  /* type all the way through */
-  99.9%{ width: 28ch; border-right: .15em solid var(--white); }
-  /* then immediately hide the caret */
-  100% { width: 28ch; border-right: .15em solid transparent; }
-}
-
-/* ————— LINE 2 ————— */
-.line2 {
-  /* start completely hidden (no text, no cursor) */
-  width: 0;
-  border-right: none;
-
-  /* delay for line1’s 2s, then run typing2, keeping end state */
-  animation: typing2 2s steps(30,end) 2s forwards;
-}
-
-
-@keyframes typing2 {
-  /* at the very moment typing2 begins, inject the caret */
-  0%   { width: 0;   border-right: .15em solid var(--white); }
-  99.9%{ width: 30ch; border-right: .15em solid var(--white); }
-  100% { width: 30ch; border-right: .15em solid transparent; }
-}
 .hero-btn {
   margin-top: 1.5rem;
   padding: 1rem 2rem;
