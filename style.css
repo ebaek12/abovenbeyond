@@ -3013,3 +3013,29 @@ img, video {
   text-align: left;      /* should already be default */
   width: 100%;
 }
+/* ── Hero: larger headline ───────────────────────────────────── */
+
+.hero-title {
+  /* increase from 4rem to something larger */
+  font-size: 5rem;
+  line-height: 1.1;
+  /* keep the drop-shadow, centering, etc. */
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* ensure your two spans still each live on their own line */
+/* you shouldn’t actually need this if you have <br> in the markup, but just in case: */
+.hero-title .line1,
+.hero-title .line2 {
+  display: block;
+}
+
+/* ── Hero: bigger call-to-action ───────────────────────────── */
+
+.hero-btn {
+  /* up from 1rem × 2rem */
+  padding: 1.25rem 3rem;
+  /* bump up the text size a bit */
+  font-size: 1.125rem;
+}
