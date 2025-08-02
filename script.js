@@ -33,7 +33,23 @@ if (slides.length > 0) {
 
 // still in script.js, after the slider block
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    const cta = document.querySelector('.cta-typing');
+    if (!cta) return;
+  
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cta.classList.add('start');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1   // fire as soon as 10% is visible
+    });
+  
+    obs.observe(cta);
+  });
   // back-to-top button
 const btn = document.querySelector('.back-to-top');
 if (btn) {
@@ -97,50 +113,4 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('open');
     navToggle.classList.toggle('open');
   });
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const mql = window.matchMedia('(max-width: 600px)');
-  const hero = document.querySelector('.hero-title');
-  function splitHero() {
-    if (!hero) return;
-    if (mql.matches && !hero.classList.contains('mobile-split')) {
-      hero.classList.add('mobile-split');
-      hero.innerHTML = `
-        <span class="line1">A College Counselor</span>
-        <span class="line2">That Goes Above</span>
-        <span class="line3">and Beyond For You.</span>
-      `;
-    }
-    // if you want to revert back on desktop, you could stash the original innerHTML
-    // and restore here when !mql.matches
-  }
-  mql.addEventListener('change', splitHero);
-  splitHero();
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const mql  = window.matchMedia('(max-width:600px)');
-  const hero = document.querySelector('.hero-title');
-  const originalHTML = hero.innerHTML;
-
-  function updateHero() {
-    if (mql.matches && !hero.classList.contains('mobile-split')) {
-      hero.classList.add('mobile-split');
-      // three lines, hidden by CSS until each types
-      hero.innerHTML = `
-        <span class="line1">A College Counselor</span>
-        <span class="line2">That Goes Above</span>
-        <span class="line3">and Beyond For You.</span>
-      `;
-    }
-    if (!mql.matches && hero.classList.contains('mobile-split')) {
-      hero.classList.remove('mobile-split');
-      hero.innerHTML = originalHTML;
-    }
-  }
-
-  // run on load + on resize changes
-  mql.addEventListener
-    ? mql.addEventListener('change', updateHero)
-    : mql.addListener(updateHero);
-  updateHero();
 });
