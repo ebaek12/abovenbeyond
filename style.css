@@ -3042,49 +3042,21 @@ img, video {
 /* ———————————————————————————— */
 /* Fluid typography for hero title */
 /* ———————————————————————————— */
-.hero-title {
-  /* remove any hard-coded size here */
-  /* font-size: 4rem; */
 
-  /* new fluid scale: 
-     at smallest viewports it won’t drop below 2rem,
-     in the middle it’ll be 8vw,
-     on large screens it maxes out at 4rem */
-  font-size: clamp(2rem, 8vw, 4rem);
-  line-height: 1.1;           /* tighter line-height for two-liner */
-}
 
-.hero-title .line1,
-.hero-title .line2 {
-  display: block;             /* force exactly two lines */
-  white-space: nowrap;        /* no internal wrapping */
-  overflow: hidden;           /* clip if it ever tries to spill */
-}
 
 @media (max-width: 2050px) {
-  .hero-title span {
-    display: block;                /* each on its own line */
-    width: auto !important;        /* full width */
-    overflow: visible !important;  /* show it right away */
-    white-space: normal !important;
-    border-right: none !important; /* hide caret */
-    .hero-title {
-      /* increase from 4rem to something larger */
-      font-size: 4rem;
-      line-height: 1.1;
-      /* keep the drop-shadow, centering, etc. */
-      color: var(--white);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-    }    /* kill any typing */
-  }
+  .hero-title {
+    /* increase from 4rem to something larger */
+    font-size: 4rem;
+    line-height: 1.1;
+    /* keep the drop-shadow, centering, etc. */
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  }    /* kill any typing */
 }
 @media (max-width: 1500px) {
-  .hero-title span {
-    display: block;                /* each on its own line */
-    width: auto !important;        /* full width */
-    overflow: visible !important;  /* show it right away */
-    white-space: normal !important;
-    border-right: none !important; /* hide caret */
+
     .hero-title {
       /* increase from 4rem to something larger */
       font-size: 3rem;
@@ -3093,5 +3065,4 @@ img, video {
       color: var(--white);
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }    /* kill any typing */
-  }
 }
