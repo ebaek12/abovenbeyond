@@ -3060,3 +3060,31 @@ img, video {
   white-space: nowrap;        /* no internal wrapping */
   overflow: hidden;           /* clip if it ever tries to spill */
 }
+/* 1. Constrain your hero content to the page margins */
+.hero-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;   /* breathing room on the sides */
+  box-sizing: border-box;
+}
+
+/* 2. Force exactly two rows, center them, and let the font scale with the viewport */
+.hero-title {
+  display: grid;
+  grid-template-rows: auto auto;   /* exactly two lines */
+  justify-items: center;           /* center each row */
+  text-align: center;
+  width: 100%;
+
+  /* fluid font: scales down on small screens, caps on big ones */
+  font-size: min(8vw, 5rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* 3. Each <span> lives in one row and never wraps internally */
+.hero-title span {
+  display: block;        /* one row per span */
+  white-space: nowrap;   /* keep the text of each span on its own line */
+}
