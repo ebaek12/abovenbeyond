@@ -3055,7 +3055,7 @@ img, video {
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
   }    /* kill any typing */
 }
-@media (max-width: 1500px) {
+@media (max-width: 1850px) {
 
     .hero-title {
       /* increase from 4rem to something larger */
@@ -3065,4 +3065,15 @@ img, video {
       color: var(--white);
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }    /* kill any typing */
+}
+@media (max-width: 1500px) {
+
+  .hero-title {
+    /* increase from 4rem to something larger */
+    font-size: 2rem;
+    line-height: 1.1;
+    /* keep the drop-shadow, centering, etc. */
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  }    /* kill any typing */
 }
