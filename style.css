@@ -3039,3 +3039,44 @@ img, video {
   /* bump up the text size a bit */
   font-size: 1.125rem;
 }
+/* —————————————————————————————
+   HERO TITLE — make it fluid & wrappable
+   ————————————————————————————— */
+   .hero-title {
+    /* fluid font size: never smaller than 2.5rem, 
+       scales at 5vw in the middle, caps at 5rem */
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 1.1;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    text-align: center;
+    margin: 0;
+    
+    /* allow text to wrap inside the container */
+    white-space: normal; 
+    overflow-wrap: break-word;
+  }
+  
+  /* force each span onto its own row */
+  .hero-title .line1,
+  .hero-title .line2 {
+    display: block;
+    /* clean up any old nowrap settings */
+    white-space: normal !important;
+  }
+  
+  /* constrain the overall width so it always wraps to two lines */
+  .hero-content .hero-title {
+    max-width: 90%;        /* gives 5% padding each side */
+    width: clamp(300px, 80%, 1200px);
+    margin: 0 auto;        /* center under the video */
+  }
+  
+  /* tiny tweak on mobile to ensure it never over-flows */
+  @media (max-width: 480px) {
+    .hero-title {
+      /* even smaller floor, and let it shrink to a smaller size */
+      font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+  }
+  
