@@ -3060,31 +3060,38 @@ img, video {
   white-space: nowrap;        /* no internal wrapping */
   overflow: hidden;           /* clip if it ever tries to spill */
 }
-/* 1. Constrain your hero content to the page margins */
-.hero-content {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;   /* breathing room on the sides */
-  box-sizing: border-box;
+
+@media (max-width: 2050px) {
+  .hero-title span {
+    display: block;                /* each on its own line */
+    width: auto !important;        /* full width */
+    overflow: visible !important;  /* show it right away */
+    white-space: normal !important;
+    border-right: none !important; /* hide caret */
+    .hero-title {
+      /* increase from 4rem to something larger */
+      font-size: 4rem;
+      line-height: 1.1;
+      /* keep the drop-shadow, centering, etc. */
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }    /* kill any typing */
+  }
 }
-
-/* 2. Force exactly two rows, center them, and let the font scale with the viewport */
-.hero-title {
-  display: grid;
-  grid-template-rows: auto auto;   /* exactly two lines */
-  justify-items: center;           /* center each row */
-  text-align: center;
-  width: 100%;
-
-  /* fluid font: scales down on small screens, caps on big ones */
-  font-size: min(8vw, 5rem);
-  line-height: 1.1;
-  margin: 0;
-}
-
-/* 3. Each <span> lives in one row and never wraps internally */
-.hero-title span {
-  display: block;        /* one row per span */
-  white-space: nowrap;   /* keep the text of each span on its own line */
+@media (max-width: 1500px) {
+  .hero-title span {
+    display: block;                /* each on its own line */
+    width: auto !important;        /* full width */
+    overflow: visible !important;  /* show it right away */
+    white-space: normal !important;
+    border-right: none !important; /* hide caret */
+    .hero-title {
+      /* increase from 4rem to something larger */
+      font-size: 3rem;
+      line-height: 1.1;
+      /* keep the drop-shadow, centering, etc. */
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }    /* kill any typing */
+  }
 }
