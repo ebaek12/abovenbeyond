@@ -3079,23 +3079,6 @@ img, video {
 }
 
 /* Consultation fee and package credit */
-.hero-consultation-note {
-  max-width: 620px;
-  margin: 1.25rem 0 0;
-  padding: 0.9rem 1.2rem;
-  border-left: 4px solid var(--accent-color);
-  border-radius: 0.65rem;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--text-color);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.hero-consultation-note strong {
-  color: var(--primary-color);
-}
-
 .consultation-feature {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(270px, 0.8fr);
@@ -3188,11 +3171,6 @@ img, video {
 }
 
 @media (max-width: 600px) {
-  .hero-consultation-note {
-    font-size: 0.9rem;
-    margin-top: 1rem;
-  }
-
   .consultation-features {
     grid-template-columns: 1fr;
   }
