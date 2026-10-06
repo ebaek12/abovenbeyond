@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const mql  = window.matchMedia('(max-width:600px)');
   const hero = document.querySelector('.hero-title');
+  if (!hero) return;
   const originalHTML = hero.innerHTML;
 
   function updateHero() {
@@ -160,4 +161,64 @@ document.addEventListener('DOMContentLoaded', () => {
     ? mql.addEventListener('change', updateHero)
     : mql.addListener(updateHero);
   updateHero();
+});
+
+// Keep inquiry buttons useful even when a visitor has no desktop email app.
+document.addEventListener('DOMContentLoaded', () => {
+  const inquiryLinks = document.querySelectorAll('.inquiry-link');
+  if (!inquiryLinks.length || typeof HTMLDialogElement === 'undefined') return;
+
+  const email = 'AboveAndBeyondForAll@gmail.com';
+  const dialog = document.createElement('dialog');
+  dialog.className = 'inquiry-dialog';
+  dialog.setAttribute('aria-labelledby', 'inquiry-dialog-title');
+  dialog.innerHTML = `
+    <div class="inquiry-dialog-content">
+      <button type="button" class="inquiry-dialog-close" aria-label="Close contact options">&times;</button>
+      <p class="inquiry-dialog-kicker">Above &amp; Beyond College Consulting</p>
+      <h2 id="inquiry-dialog-title">Get in touch</h2>
+      <p>Choose the easiest way to send your request. Mention this subject when you contact us:</p>
+      <p class="inquiry-dialog-subject"></p>
+      <p class="inquiry-dialog-address">${email}</p>
+      <div class="inquiry-dialog-actions">
+        <a class="btn inquiry-dialog-mail" href="mailto:${email}">Open email app</a>
+        <a class="btn inquiry-dialog-gmail" href="https://mail.google.com/mail/?view=cm&fs=1" target="_blank" rel="noopener noreferrer">Use Gmail in browser</a>
+        <button type="button" class="inquiry-dialog-copy">Copy email address</button>
+      </div>
+      <p class="inquiry-dialog-status" role="status" aria-live="polite"></p>
+      <a class="inquiry-dialog-phone" href="tel:4047252424">Or call (404) 725-2424</a>
+    </div>
+  `;
+  document.body.appendChild(dialog);
+
+  const mailLink = dialog.querySelector('.inquiry-dialog-mail');
+  const gmailLink = dialog.querySelector('.inquiry-dialog-gmail');
+  const subjectText = dialog.querySelector('.inquiry-dialog-subject');
+  const status = dialog.querySelector('.inquiry-dialog-status');
+
+  inquiryLinks.forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    const subject = new URL(link.href).searchParams.get('subject') || 'Consultation request';
+    subjectText.textContent = subject;
+    mailLink.href = link.href;
+    gmailLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}`;
+    status.textContent = '';
+    dialog.showModal();
+  }));
+
+  dialog.querySelector('.inquiry-dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.querySelector('.inquiry-dialog-copy').addEventListener('click', () => {
+    const field = document.createElement('textarea');
+    field.value = email;
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand('copy');
+    field.remove();
+    status.textContent = copied ? 'Email address copied.' : 'Select and copy the email address above.';
+  });
 });
